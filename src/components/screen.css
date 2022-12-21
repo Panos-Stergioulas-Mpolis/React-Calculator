@@ -6,11 +6,11 @@
 
 .screen{
     width: 100%;
-    background-color: rgb(159, 182, 203);
-    height: 10vh;
+    background-color: rgb(255, 255, 255);
+    height: fit-content;
+    padding: 5px;
     border: 2px solid black;
     display: flex;
     align-items: center;
     justify-content: end;
-    border-radius: 20px;
 }
