@@ -21,8 +21,13 @@ function App() {
                     return "0"
                 }
                 else{
-                    setPrevOp(op => op = "")
-                    return x;
+                    if(x==="="){
+                        return screen;
+                    }
+                    else{
+                        setPrevOp(op => op = "")
+                        return x;
+                    }
                 }
                 
             }
