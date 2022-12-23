@@ -30,3 +30,8 @@
     background-color: rgb(8, 219, 26) !important;
     color: black !important;
 }
+
+.line_0{
+    display: flex;
+    justify-content: space-between;
+}
