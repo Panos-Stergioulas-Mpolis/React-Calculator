@@ -1,9 +1,14 @@
 import React from 'react'
 import "./buttons.css"
+import {BsFillBackspaceFill} from "react-icons/bs"
 
 function Buttons(props) {
   return (
     <section className='buttons'>
+        <div className='line_0'>
+            <button className='op' onClick={() =>props.func("C")}>C</button>
+            <button className='op' onClick={() =>props.func("back")}><BsFillBackspaceFill /></button>
+        </div>
         <div className='line_1'>
             <button onClick={() =>props.func("7")}>7</button>
             <button onClick={() =>props.func("8")}>8</button>
@@ -23,7 +28,7 @@ function Buttons(props) {
             <button className='op' onClick={() =>props.func("*")}>x</button>
         </div>
         <div className='line_4'>
-            <button className='op' onClick={() =>props.func("C")}>C</button>
+            <button className='op' onClick={() =>props.func(".")}>.</button>
             <button onClick={() =>props.func("0")}>0</button>
             <button className='op' onClick={() =>props.func("/")}>/</button>
             <button className='op' onClick={() =>props.func("=")}>=</button>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Screen from './components/Screen'
 import Buttons from './components/Buttons'
+import { renderIntoDocument } from 'react-dom/test-utils'
 
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
       setScreen(screen => {
         if((screen === "0" || prevOp === "=") )
         {
-            if((x === "*" || x === "+" || x === "/" || x ==="-")){
+            if((x === "*" || x === "+" || x === "/" || x ==="-" || x===".")){
                 setPrevOp(op => op = x)
                 return screen + x;
             }
@@ -19,6 +20,9 @@ function App() {
                 {
                     setPrevOp(op => op = "")
                     return "0"
+                }
+                else   if(x==="back"){
+                    return screen;
                 }
                 else{
                     if(x==="="){
@@ -40,7 +44,7 @@ function App() {
         }
         else if(x === "=")
         {
-            if(prevOp === "*" || prevOp === "+" || prevOp === "/" || prevOp ==="-" ){
+            if(prevOp === "*" || prevOp === "+" || prevOp === "/" || prevOp ==="-" || prevOp ==="."){
                 return screen;
             }
             else{
@@ -49,13 +53,22 @@ function App() {
             }
             
         }
-        else if(x === "*" || x === "+" || x === "/" || x ==="-"){
-            if(prevOp === "*" || prevOp === "+" || prevOp === "/" || prevOp ==="-"){
+        else if(x === "*" || x === "+" || x === "/" || x ==="-" ||x ==="."){
+            if(prevOp === "*" || prevOp === "+" || prevOp === "/" || prevOp ==="-" || prevOp ==="."){
                 return screen;
             }
             else{
                 setPrevOp(op => op = x)
                 return screen + x;
+            }
+        }
+        else if(x === "back"){
+            if(screen.length === 1){
+                setScreen(prev => prev = "0")
+                return screen;
+            }
+            else{
+                return screen.slice(0,-1);
             }
         }
         else
