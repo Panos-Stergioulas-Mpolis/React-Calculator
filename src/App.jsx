@@ -5,13 +5,21 @@ import { renderIntoDocument } from 'react-dom/test-utils'
 
 
 function App() {
-    const [screen, setScreen] = React.useState("0")
-    const [prevOp, setPrevOp] = React.useState("")
+    const [screen, setScreen] = React.useState("0");
+    const [prevOp, setPrevOp] = React.useState("");
+    const [dot, setDot] = React.useState(false);
+
     function eventHandle(x){
       setScreen(screen => {
         if((screen === "0" || prevOp === "=") )
         {
             if((x === "*" || x === "+" || x === "/" || x ==="-" || x===".")){
+                if(x === '.'){
+                    setDot(dot => dot = true)
+                }
+                else{
+                    setDot(dot => dot = false)
+                }
                 setPrevOp(op => op = x)
                 return screen + x;
             }
@@ -19,13 +27,16 @@ function App() {
                 if(x === "C")
                 {
                     setPrevOp(op => op = "")
+                    setDot(dot => dot = false)
                     return "0"
                 }
                 else   if(x==="back"){
+                    setDot(dot => dot = false)
                     return screen;
                 }
                 else{
                     if(x==="="){
+                        setDot(dot => dot = false)
                         return screen;
                     }
                     else{
@@ -39,6 +50,7 @@ function App() {
         }
         else if(x === "C")
         {
+            setDot(dot => dot = false)
             setPrevOp(op => op = "")
             return "0";
         }
@@ -48,6 +60,7 @@ function App() {
                 return screen;
             }
             else{
+                setDot(dot => dot = false)
                 setPrevOp(op => op = x);
                 return eval(screen);
             }
@@ -58,6 +71,16 @@ function App() {
                 return screen;
             }
             else{
+                if(x==="." && dot === true){
+                    return screen;
+                    
+                }
+                else if(x==="." && dot === false){
+                    setDot(dot => dot = true)
+                }
+                if(x !== "."){
+                    setDot(dot => dot = false)
+                }
                 setPrevOp(op => op = x)
                 return screen + x;
             }
@@ -68,6 +91,10 @@ function App() {
                 return screen;
             }
             else{
+                let check = screen[screen.length -1]
+                if(check === "."){
+                    setDot(dot => dot = false)
+                }
                 return screen.slice(0,-1);
             }
         }
