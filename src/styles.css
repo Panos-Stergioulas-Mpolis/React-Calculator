@@ -5,16 +5,21 @@
 }
 
 body{
-    font-size: 30px;
-    background-color: rgb(82, 39, 134);
+    background: linear-gradient(240deg, rgb(243, 176, 225), rgb(252, 131, 211));
     font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container{
-    width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 8%;
+    margin: auto;
+    background:rgba(128, 128, 128, 0.406);
+    width: fit-content;
+    padding: 20px;
+    height: fit-content;
 }
+

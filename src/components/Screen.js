@@ -3,9 +3,7 @@ import "./screen.css"
 
 function Screen(props) {
   return (
-    <section className='screen-sec'>
-        <div className='screen'>{props.show}</div>
-    </section>
+        <input type='text' disabled className='screen' placeholder={props.show}/>
   )
 }
 

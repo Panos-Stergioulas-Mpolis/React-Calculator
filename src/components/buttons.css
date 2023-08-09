@@ -1,37 +1,29 @@
 .buttons{
-    width: 50%;
-    height: 55vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 2px;
 }
 
-.buttons > div{
-    width: 100%;
-    height: 55vh;
+.op{
+    background-color: rgb(234, 83, 171)!important;
+    color: white;
 }
 
 .buttons > div > button{
-    width: calc(100% / 4);
-    height: 100%;
-    color: white;
-    background-color: black;
-    border: 1px solid white;
-    font-size: 20px;
+    font-size: 25px;
+    background-color: white;
+    border: none;
+    padding: 15px 20px;
+    height: 75px;
+    width: 70px;
+    margin-top: 5px;
+    border-radius: 9px;
 }
 
 .buttons > div > button:hover{
     cursor: pointer;
-    background-color: rgb(87, 87, 215) !important;
 }
 
-.op{
-    background-color: rgb(8, 219, 26) !important;
-    color: black !important;
-}
-
-.line_0{
+.line_{
     display: flex;
     justify-content: space-between;
 }
